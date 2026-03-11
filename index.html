@@ -21,63 +21,71 @@
         .logo span { color: var(--soft-gold); font-weight: 300; }
 
         /* --- Hero --- */
-        .hero { height: 75vh; display: flex; flex-direction: column; justify-content: center; padding: 0 8%; background: radial-gradient(circle at 80% 20%, #222 0%, #000 100%); }
+        .hero { height: 70vh; display: flex; flex-direction: column; justify-content: center; padding: 0 8%; background: radial-gradient(circle at 80% 20%, #222 0%, #000 100%); }
         .hero h1 { font-size: clamp(65px, 18vw, 130px); font-weight: 900; line-height: 0.9; margin-bottom: 10px; }
         .metal-text { background: linear-gradient(165deg, #fff 10%, #999 40%, #fff 50%, #888 70%, #fff 100%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shine 6s linear infinite; }
         .hero h2 { font-size: clamp(35px, 10vw, 60px); color: var(--soft-gold); font-weight: 300; letter-spacing: 10px; }
         @keyframes shine { to { background-position: 200% center; } }
 
-        /* --- 标题样式 --- */
+        /* --- 通用标题 --- */
         .sec-header { padding: 80px 8% 40px; }
-        .sec-header h3 { font-size: 28px; font-weight: 800; }
         .sec-header p { color: var(--soft-gold); font-size: 12px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 10px; }
+        .sec-header h3 { font-size: 28px; font-weight: 800; }
 
-        /* --- 21色系选择区 --- */
+        /* --- 1. 材质跨界大PK --- */
+        .pk-scroll { display: flex; overflow-x: auto; padding: 0 8% 40px; gap: 20px; scrollbar-width: none; }
+        .pk-scroll::-webkit-scrollbar { display: none; }
+        .pk-item { min-width: 280px; background: var(--card-gray); padding: 30px; border: 1px solid var(--border-white); }
+        .pk-item.win { border-color: var(--soft-gold); position: relative; }
+        .pk-item.win::after { content: "RECOMMEND"; position: absolute; top: 15px; right: 15px; font-size: 10px; color: var(--soft-gold); border: 1px solid var(--soft-gold); padding: 2px 6px; }
+        .pk-item h4 { font-size: 20px; margin-bottom: 15px; }
+        .pk-item ul { list-style: none; font-size: 13px; color: #888; }
+        .pk-item ul li { margin-bottom: 8px; display: flex; align-items: center; }
+        .pk-item ul li::before { content: "✕"; color: #ff4d4f; margin-right: 8px; }
+        .pk-item.win ul li::before { content: "✓"; color: var(--soft-gold); }
+
+        /* --- 2. 同行深度对比表 --- */
+        .compare-table { margin: 0 8% 40px; border: 1px solid var(--border-white); font-size: 13px; }
+        .table-row { display: grid; grid-template-columns: 1fr 1.5fr 1.5fr; border-bottom: 1px solid var(--border-white); }
+        .table-cell { padding: 15px 10px; text-align: center; display: flex; align-items: center; justify-content: center; }
+        .t-head { background: #1a1a1a; color: var(--soft-gold); font-weight: 800; }
+        .t-aijia { background: rgba(229, 201, 164, 0.05); font-weight: 700; }
+
+        /* --- 3. 工艺介绍 --- */
+        .process-grid { display: grid; grid-template-columns: 1fr; gap: 20px; padding: 0 8% 80px; }
+        .process-card { background: #0a0a0a; border-left: 3px solid var(--soft-gold); padding: 25px; }
+        .process-card h5 { color: var(--soft-gold); font-size: 18px; margin-bottom: 10px; }
+        .process-card p { font-size: 14px; color: #999; }
+
+        /* --- 色系选择区 (保持之前样式) --- */
         .color-palette { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 0 5% 80px; }
         @media (min-width: 768px) { .color-palette { grid-template-columns: repeat(7, 1fr); } }
-        
         .color-item { background: var(--card-gray); padding: 20px 5px; text-align: center; border: 1px solid var(--border-white); }
-        .swatch { width: 45px; height: 45px; border-radius: 50%; margin: 0 auto 10px; border: 1.5px solid rgba(255,255,255,0.2); transition: 0.3s; }
-        .color-item:hover .swatch { transform: scale(1.1); border-color: var(--soft-gold); }
-        .color-item span { font-size: 11px; color: #999; display: block; white-space: nowrap; }
+        .swatch { width: 45px; height: 45px; border-radius: 50%; margin: 0 auto 10px; border: 1.5px solid rgba(255,255,255,0.2); }
+        .color-item span { font-size: 11px; color: #999; display: block; }
 
-        /* --- 安装双模式 --- */
+        /* --- 安装方案 (保持之前样式) --- */
         .install-section { padding: 0 8% 100px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .install-card { background: #0a0a0a; border: 1px solid var(--border-white); padding: 50px 30px; border-radius: 4px; text-align: center; }
         .install-card.premium { border-color: var(--soft-gold); background: rgba(229, 201, 164, 0.05); }
-        .install-card h4 { font-size: 24px; margin-bottom: 15px; }
-        .install-card p { font-size: 14px; color: #666; margin-bottom: 30px; }
-        
-        .btn { display: block; width: 100%; padding: 16px; border-radius: 4px; text-decoration: none; font-weight: 800; font-size: 15px; margin-bottom: 10px; transition: 0.3s; }
+        .btn { display: block; width: 100%; padding: 16px; border-radius: 4px; text-decoration: none; font-weight: 800; margin-bottom: 10px; }
         .btn-white { background: #fff; color: #000; }
         .btn-outline { border: 1px solid var(--soft-gold); color: var(--soft-gold); }
         .btn-gold { background: var(--soft-gold); color: #000; }
 
-        /* --- 预约表单弹出层 --- */
+        /* --- 弹窗与底部 (保持之前样式) --- */
         .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 3000; padding: 10% 8%; }
         .modal-body { background: #111; padding: 40px 30px; border: 1px solid var(--soft-gold); border-radius: 8px; position: relative; }
-        .modal-body h4 { font-size: 22px; color: var(--soft-gold); margin-bottom: 20px; }
-        .modal input { width: 100%; background: #222; border: 1px solid #333; padding: 15px; margin-bottom: 15px; color: #fff; border-radius: 4px; }
-        .modal-close { position: absolute; top: 15px; right: 20px; font-size: 24px; color: #666; }
-
-        /* --- 文字教学弹出层 --- */
-        #textTutorial { overflow-y: auto; }
-        .tutorial-content { color: #ccc; font-size: 14px; line-height: 1.8; text-align: left; }
-        .tutorial-content b { color: var(--soft-gold); display: block; margin-top: 15px; }
-
-        /* --- 底部转换栏 --- */
-        .dock { position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 450px; background: #fff; height: 74px; border-radius: 40px; display: flex; align-items: center; padding: 6px; z-index: 2000; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .dock { position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 450px; background: #fff; height: 74px; border-radius: 40px; display: flex; align-items: center; padding: 6px; z-index: 2000; }
         .dock-item { flex: 1; text-align: center; text-decoration: none; color: #000; font-size: 10px; font-weight: 900; display: flex; flex-direction: column; }
         .dock-main { background: #000; color: #fff; border-radius: 35px; height: 100%; justify-content: center; }
-
-        .toast { position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); background: #fff; color: #000; padding: 15px 30px; border-radius: 30px; font-weight: 900; display: none; z-index: 4000; }
     </style>
 </head>
 <body>
 
     <header>
         <div class="logo">AIJIA <span>爱家铝业</span></div>
-        <div style="font-size: 9px; color: #555; letter-spacing: 2px;">SINCE 2012</div>
+        <div style="font-size: 9px; color: #555; letter-spacing: 2px;">PREMIUM QUALITY</div>
     </header>
 
     <section class="hero">
@@ -86,8 +94,90 @@
     </section>
 
     <div class="sec-header">
-        <p>Color Selection</p >
-        <h3>21款全色系展示</h3>
+        <p>Why Aluminum?</p >
+        <h3>不同材质踢脚线对比</h3>
+    </div>
+    <div class="pk-scroll">
+        <div class="pk-item">
+            <h4>实木/木塑</h4>
+            <ul>
+                <li>受潮易发霉鼓包</li>
+                <li>含有甲醛释放风险</li>
+                <li>易生虫，不耐撞击</li>
+            </ul>
+        </div>
+        <div class="pk-item">
+            <h4>PVC材质</h4>
+            <ul>
+                <li>廉价感强，易老化</li>
+                <li>接缝明显，易变色</li>
+                <li>安装稳定性差</li>
+            </ul>
+        </div>
+        <div class="pk-item win">
+            <h4>航空铝合金</h4>
+            <ul>
+                <li>永久不霉、不锈、防火</li>
+                <li>0甲醛环保材质</li>
+                <li>莫氏硬度高，防撞耐用</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="sec-header">
+        <p>Expert Choice</p >
+        <h3>爱家 vs 普通同行</h3>
+    </div>
+    <div class="compare-table">
+        <div class="table-row">
+            <div class="table-cell t-head">对比项</div>
+            <div class="table-cell t-head">爱家 AIJIA</div>
+            <div class="table-cell t-head">普通厂家</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">材质等级</div>
+            <div class="table-cell t-aijia">6063-T5 航空原铝</div>
+            <div class="table-cell">回收再生铝（杂质多）</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">铝材厚度</div>
+            <div class="table-cell t-aijia">标准 0.8mm-1.2mm</div>
+            <div class="table-cell">薄如纸(0.4mm) 易变形</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">表面工艺</div>
+            <div class="table-cell t-aijia">12μm 阳极氧化层</div>
+            <div class="table-cell">普通喷漆 易掉色</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">专利结构</div>
+            <div class="table-cell t-aijia">隐藏式抗松脱卡扣</div>
+            <div class="table-cell">传统打钉或胶水固定</div>
+        </div>
+    </div>
+
+    <div class="sec-header">
+        <p>Craftsmanship</p >
+        <h3>爱家三大核心工艺</h3>
+    </div>
+    <section class="process-grid">
+        <div class="process-card">
+            <h5>纳米级喷砂工艺</h5>
+            <p>通过高速砂流撞击，形成均匀细腻的哑光磨砂质感，触感如丝绸，不留指纹。</p >
+        </div>
+        <div class="process-card">
+            <h5>立体细致拉丝</h5>
+            <p>机械交错拉丝处理，形成清晰平行的金属纹理，光影下极具科技美感与层次感。</p >
+        </div>
+        <div class="process-card">
+            <h5>深层阳极氧化</h5>
+            <p>将铝材置于电解液中形成致密保护膜，色泽深入骨髓，承诺50年不退色、不被腐蚀。</p >
+        </div>
+    </section>
+
+    <div class="sec-header">
+        <p>21 Colors</p >
+        <h3>全色系美学画廊</h3>
     </div>
     <div class="color-palette">
         <div class="color-item"><div class="swatch" style="background:#FFFFFF;"></div><span>瓷白色</span></div>
@@ -115,42 +205,42 @@
 
     <div class="sec-header">
         <p>Installation</p >
-        <h3>如何完成安装？</h3>
+        <h3>安装方案选择</h3>
     </div>
     <section class="install-section">
         <div class="install-card">
             <h4>自行安装</h4>
-            <p>适合已有装修工人或DIY爱好者，提供全流程指导。</p >
-            <a href=" " class="btn btn-white">查看视频教学</a >
-            <a href="javascript:void(0);" onclick="openModal('textTutorial')" class="btn btn-outline">查看文字教学</a >
+            <p>适合已有装修工人或DIY爱好者，提供视频+文字手册。</p >
+            <a href=" " class="btn btn-white">观看安装视频</a >
+            <a href="javascript:void(0);" onclick="openModal('textTutorial')" class="btn btn-outline">文字教学手册</a >
         </div>
         <div class="install-card premium">
             <h4>预约师傅安装</h4>
-            <p>全国300+城市金牌工匠上门，精准测量、安装、售后一站式包办。</p >
-            <a href="javascript:void(0);" onclick="openModal('bookingModal')" class="btn btn-gold">申请预约师傅</a >
+            <p>全国300+城市上门，测量、安装、售后一站式包办。</p >
+            <a href="javascript:void(0);" onclick="openModal('bookingModal')" class="btn btn-gold">在线提交预约申请</a >
         </div>
     </section>
 
     <div id="bookingModal" class="modal">
         <div class="modal-body">
-            <span class="modal-close" onclick="closeModal('bookingModal')">×</span>
-            <h4>申请预约服务</h4>
-            <input type="text" id="name" placeholder="您的姓名">
-            <input type="tel" id="tel" placeholder="联系手机号">
-            <input type="text" id="city" placeholder="所在城市">
-            <button onclick="submitBooking()" style="width:100%; padding:16px; background:var(--soft-gold); border:none; font-weight:900;">提交申请</button>
+            <span style="position:absolute;top:15px;right:20px;font-size:24px;color:#666;" onclick="closeModal('bookingModal')">×</span>
+            <h4 style="color:var(--soft-gold);margin-bottom:20px;">预约上门服务</h4>
+            <input type="text" id="name" style="width:100%;background:#222;border:1px solid #333;padding:15px;margin-bottom:15px;color:#fff;" placeholder="您的姓名">
+            <input type="tel" id="tel" style="width:100%;background:#222;border:1px solid #333;padding:15px;margin-bottom:15px;color:#fff;" placeholder="联系电话">
+            <input type="text" id="city" style="width:100%;background:#222;border:1px solid #333;padding:15px;margin-bottom:15px;color:#fff;" placeholder="所在城市">
+            <button onclick="submitBooking()" style="width:100%;padding:16px;background:var(--soft-gold);border:none;font-weight:900;">提交预约申请</button>
         </div>
     </div>
 
     <div id="textTutorial" class="modal">
         <div class="modal-body">
-            <span class="modal-close" onclick="closeModal('textTutorial')">×</span>
-            <h4>极窄踢脚线安装要点</h4>
-            <div class="tutorial-content">
-                <b>1. 墙面找平</b> 铝合金踢脚线对墙面平整度要求较高，安装前请确保底部墙面平整。
-                <b>2. 卡扣固定</b> 每隔40-50cm安装一个专利卡扣，转角处左右5cm需各加一个。
-                <b>3. 45度拼角</b> 阳角与阴角建议使用切割机进行45度斜切对拼，视觉效果更隐形。
-                <b>4. 卡入面板</b> 将面板斜扣入卡扣，由上至下按压，听到“咔”声即锁死。
+            <span style="position:absolute;top:15px;right:20px;font-size:24px;color:#666;" onclick="closeModal('textTutorial')">×</span>
+            <h4 style="color:var(--soft-gold);margin-bottom:20px;">文字安装指南</h4>
+            <div style="font-size:14px;color:#ccc;line-height:1.8;text-align:left;">
+                1. <b>墙面清理</b>：确保墙脚平整干燥。<br>
+                2. <b>卡扣安装</b>：每隔40cm打孔固定底座。<br>
+                3. <b>裁切对拼</b>：转角处建议45度斜切。<br>
+                4. <b>扣合面板</b>：将面板斜向插入卡扣按压锁死。
             </div>
         </div>
     </div>
@@ -167,31 +257,22 @@
         </a >
     </div>
 
-    <div id="toast" class="toast">微信号已复制</div>
-
     <script>
         function openModal(id) { document.getElementById(id).style.display = 'block'; }
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
-        
         function submitBooking() {
-            const name = document.getElementById('name').value;
-            const tel = document.getElementById('tel').value;
-            if(!name || !tel) { alert('请填写完整信息'); return; }
-            alert('申请已提交，爱家经理将尽快联系您！');
+            alert('申请已提交，经理将尽快联系您！');
             closeModal('bookingModal');
         }
-
         function copyWX() {
-            const wxID = 'wxid_wg8u93oruyik22';
             const input = document.createElement('input');
-            input.setAttribute('value', wxID);
+            input.setAttribute('value', 'wxid_wg8u93oruyik22');
             document.body.appendChild(input);
             input.select();
             document.execCommand('copy');
             document.body.removeChild(input);
-            const toast = document.getElementById('toast');
-            toast.style.display = 'block';
-            setTimeout(() => { toast.style.display = 'none'; window.location.href = "weixin://"; }, 1500);
+            alert('微信号已复制');
+            window.location.href = "weixin://";
         }
     </script>
 </body>
