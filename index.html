@@ -2,67 +2,96 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>品牌画册 | 极简美学展示</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ALU-PRO | 极简铝合金踢脚线专家</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap');
-        body { font-family: 'Noto Serif SC', serif; background-color: #0a0a0a; color: #fff; }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .hero-bg { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80'); background-size: cover; background-position: center; }
+        :root { --apple-blue: #0071e3; --dy-red: #fe2c55; --glass: rgba(255, 255, 255, 0.75); --blur: blur(20px); }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro SC", sans-serif; background: #000; color: #fff; }
+        header { position: fixed; top: 0; width: 100%; height: 54px; background: rgba(0,0,0,0.8); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur); display: flex; justify-content: center; align-items: center; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .logo { font-weight: 700; font-size: 18px; }
+        
+        .hero { height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
+        .hero h1 { font-size: 48px; margin-bottom: 20px; background: linear-gradient(180deg, #fff 0%, #a1a1a6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* 产品画廊区 */
+        .gallery-section { padding: 60px 20px; background: #fff; color: #1d1d1f; text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 40px auto; }
+        .product-card { border-radius: 15px; overflow: hidden; background: #f5f5f7; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .product-card img { width: 100%; height: 300px; object-fit: cover; display: block; }
+        .product-card p { padding: 15px; font-weight: 600; font-size: 15px; }
+
+        /* 底部转换栏 */
+        .dock-bar { position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 450px; height: 76px; background: rgba(255, 255, 255, 0.85); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 38px; display: flex; justify-content: space-around; align-items: center; box-shadow: 0 15px 35px rgba(0,0,0,0.3); z-index: 1000; border: 1px solid rgba(255,255,255,0.4); }
+        .dock-item { text-decoration: none; color: #1d1d1f; display: flex; flex-direction: column; align-items: center; flex: 1; }
+        .dock-item .icon { font-size: 22px; margin-bottom: 4px; }
+        .dock-item span { font-size: 11px; font-weight: 600; }
+        .toast { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.85); color: #fff; padding: 15px 30px; border-radius: 50px; display: none; z-index: 2000; }
     </style>
 </head>
-<body class="overflow-x-hidden">
+<body>
 
-    <nav class="fixed w-full z-50 px-6 py-4 flex justify-between items-center glass">
-        <div class="text-xl font-bold tracking-widest">LUXURY BRAND</div>
-        <div class="space-x-8 text-sm uppercase tracking-tighter hidden md:block">
-            <a href=" " class="hover:text-gray-400 transition">公司介绍</a >
-            <a href="#products" class="hover:text-gray-400 transition">产品展示</a >
-            <a href="#contact" class="hover:text-gray-400 transition">联系我们</a >
-        </div>
-    </nav>
+    <header><div class="logo">ALU-PRO</div></header>
 
-    <section class="h-screen flex items-center justify-center hero-bg text-center px-4">
-        <div data-aos="fade-up">
-            <h1 class="text-5xl md:text-7xl font-light mb-6 tracking-widest">定义不凡品质</h1>
-            <p class="text-gray-300 text-lg md:text-xl tracking-widest uppercase font-light">Crafting Excellence Since 2024</p >
-        </div>
+    <section class="hero">
+        <p style="color:var(--apple-blue); font-weight:600;">航空级铝合金材质</p >
+        <h1>纤细，却强韧。</h1>
+        <p style="color:#86868b; font-size:18px;">极简线条，勾勒空间秩序。</p >
     </section>
 
-    <section id="about" class="py-32 px-6 max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl mb-12 font-bold tracking-widest italic">关于我们 / ABOUT</h2>
-        <p class="text-gray-400 leading-loose text-lg font-light">
-            我们致力于将尖端技术与极致美学相结合。每一件产品不仅是工具，更是时间的艺术品。
-            在追求完美的道路上，我们从不妥协，只为给每一位尊贵客户提供无与伦比的感官体验。
-        </p >
-    </section>
-
-    <section id="products" class="py-20 bg-white text-black px-6">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl mb-16 text-center tracking-widest">精选系列 / GALLERY</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="group overflow-hidden cursor-pointer">
-                    < img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80" class="w-full h-[400px] object-cover group-hover:scale-110 transition duration-700">
-                    <p class="mt-4 text-sm tracking-widest uppercase">Classic Series - 01</p >
-                </div>
-                <div class="group overflow-hidden cursor-pointer">
-                    < img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80" class="w-full h-[400px] object-cover group-hover:scale-110 transition duration-700">
-                    <p class="mt-4 text-sm tracking-widest uppercase">Classic Series - 02</p >
-                </div>
-                <div class="group overflow-hidden cursor-pointer">
-                    < img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80" class="w-full h-[400px] object-cover group-hover:scale-110 transition duration-700">
-                    <p class="mt-4 text-sm tracking-widest uppercase">Classic Series - 03</p >
-                </div>
+    <section class="gallery-section">
+        <h2 style="letter-spacing: 2px;">精选系列 / GALLERY</h2>
+        <div class="grid">
+            <div class="product-card">
+                < img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800">
+                <p>极简哑光黑 - 01</p >
+            </div>
+            <div class="product-card">
+                < img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=800">
+                <p>高端拉丝银 - 02</p >
+            </div>
+            <div class="product-card">
+                < img src="https://images.unsplash.com/photo-1617806118233-18e1674745be?auto=format&fit=crop&q=80&w=800">
+                <p>香槟金工程 - 03</p >
             </div>
         </div>
+        
+        <div style="margin-top: 40px; color: #86868b; font-size: 14px;">
+            <p>商务咨询</p >
+            <p style="color:#1d1d1f; font-weight:600; font-size:18px;">18919521681</p >
+        </div>
     </section>
 
-    <footer id="contact" class="py-20 glass text-center">
-        <p class="text-sm tracking-widest text-gray-500 mb-4 uppercase">Contact Us</p >
-        <p class="text-2xl font-light mb-8">service@brand.com</p >
-        <div class="text-[10px] text-gray-600 tracking-[0.3em] uppercase">© 2026 LUXURY BRAND. ALL RIGHTS RESERVED.</div>
-    </footer>
+    <div class="dock-bar">
+        <a href=" " class="dock-item" style="color:var(--dy-red);">
+            <span class="icon">🎵</span><span>去抖音</span>
+        </a >
+        <a href="javascript:void(0);" onclick="copyWX()" class="dock-item">
+            <span class="icon">💬</span><span>加微信</span>
+        </a >
+        <a href="tel:18919521681" class="dock-item">
+            <span class="icon">📞</span><span>联系经理</span>
+        </a >
+        <a href="tel:19541081358" class="dock-item">
+            <span class="icon">📱</span><span>咨询售后</span>
+        </a >
+    </div>
 
+    <div id="toast" class="toast">微信号已复制，正在前往微信...</div>
+
+    <script>
+        function copyWX() {
+            const wxID = 'wxid_wg8u93oruyik22';
+            const input = document.createElement('input');
+            input.setAttribute('value', wxID);
+            document.body.appendChild(input);
+            input.select();
+            document.execCommand('copy');
+            document.body.removeChild(input);
+            const toast = document.getElementById('toast');
+            toast.style.display = 'block';
+            setTimeout(() => { toast.style.display = 'none'; window.location.href = "weixin://"; }, 1500);
+        }
+    </script>
 </body>
 </html>
