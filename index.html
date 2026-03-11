@@ -3,77 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ALU-PRO | 极简铝合金踢脚线专家</title>
+    <title>ALU-PRO | 工业级铝合金踢脚线系统</title>
     <style>
-        :root { --apple-blue: #0071e3; --dy-red: #fe2c55; --glass: rgba(255, 255, 255, 0.75); --blur: blur(20px); }
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro SC", sans-serif; background: #000; color: #fff; }
-        header { position: fixed; top: 0; width: 100%; height: 54px; background: rgba(0,0,0,0.8); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur); display: flex; justify-content: center; align-items: center; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .logo { font-weight: 700; font-size: 18px; }
-        
-        .hero { height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
-        .hero h1 { font-size: 48px; margin-bottom: 20px; background: linear-gradient(180deg, #fff 0%, #a1a1a6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        
-        /* 产品画廊区 */
-        .gallery-section { padding: 60px 20px; background: #fff; color: #1d1d1f; text-align: center; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 40px auto; }
-        .product-card { border-radius: 15px; overflow: hidden; background: #f5f5f7; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        .product-card img { width: 100%; height: 300px; object-fit: cover; display: block; }
-        .product-card p { padding: 15px; font-weight: 600; font-size: 15px; }
+        /* --- 核心工业色板 --- */
+        :root {
+            --steel-gray: #1a1a1a; /* 主背景 */
+            --deep-black: #0d0d0d; /* 强调背景 */
+            --metal-shine: #f5f5f7; /* 金属冷光字 */
+            --text-gray: #86868b; /* 次要文字 */
+            --dy-red: #fe2c55; /* 抖音红，保留作为强调色 */
+            --border: rgba(255,255,255,0.08); /* 锐利的边框 */
+        }
 
-        /* 底部转换栏 */
-        .dock-bar { position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 450px; height: 76px; background: rgba(255, 255, 255, 0.85); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 38px; display: flex; justify-content: space-around; align-items: center; box-shadow: 0 15px 35px rgba(0,0,0,0.3); z-index: 1000; border: 1px solid rgba(255,255,255,0.4); }
-        .dock-item { text-decoration: none; color: #1d1d1f; display: flex; flex-direction: column; align-items: center; flex: 1; }
-        .dock-item .icon { font-size: 22px; margin-bottom: 4px; }
-        .dock-item span { font-size: 11px; font-weight: 600; }
-        .toast { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.85); color: #fff; padding: 15px 30px; border-radius: 50px; display: none; z-index: 2000; }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        
+        /* 1. 基础重置：全黑硬朗基调 */
+        body {
+            font-family: "SF Pro SC", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--deep-black);
+            color: var(--metal-shine);
+            line-height: 1.4;
+            overflow-x: hidden;
+            letter-spacing: 0.5px; /* 增加字间距，更有呼吸感 */
+        }
+
+        /* 2. 背景：加入细微拉丝质感 */
+        .industrial-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(13,13,13,0.95), rgba(13,13,13,0.95)), 
+                              url('https://images.unsplash.com/photo-1518709766631-a6a7f4593b3e?q=80&w=2000');
+            background-size: cover; background-position: center;
+            z-index: -1;
+        }
+
+        /* --- 头部导航：全黑半透 --- */
+        header {
+            position: fixed; top: 0; width: 100%; height: 60px;
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+        }
+        .logo { font-weight: 900; font-size: 20px; letter-spacing: 2px; text-transform: uppercase; color: #fff; }
+
+        /* --- 主展示区：强调金属冷光大标题 --- */
+        .hero {
+            height: 80vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        .hero p { color: var(--text-gray); font-weight: 500; font-size: 14px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 3px; }
+        
+        /* 标题：使用金属渐变 */
+        .hero h1 {
+            font-size: clamp(48px, 12vw, 80px); /* 手机上更大，更有视觉冲击力 */
+            font-weight: 900; line-height: 1; margin-bottom: 25px;
+            background: linear-gradient(180deg, #fff 0%, #a1a1a6 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            letter-spacing: -2px;
+        }
+        .hero .sub { color: #fff; font-size: 20px; max-width: 320px; font-weight: 300; }
+
+        /* --- 核心技术参数区：黑灰格子布局 --- */
+        .tech-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            border-top: 1px solid var(--border);
+        }
+        .tech-item {
+            padding: 50px 30px;
+            border-bottom: 1px solid var(--border);
+            background: var(--steel-gray);
+        }
+        .tech-item:nth-child(even) { background: var(--deep-black); }
+        .tech-title { font-size: 24px; font-weight: 700; margin-bottom: 15px; color: #fff; }
+        .tech-desc { color: var(--text-gray); font-size: 15px; line-height: 1.6; }
+        .tech-value { font-size: 48px; font-weight: 900; color: #fff; margin-bottom: 5px; font-family: 'Courier New', monospace; } /* 类似工业喷码的字体 */
+
+        /* --- 产品画廊区：黑色卡片，金属边框 --- */
+        .gallery-section {
+            padding: 80px 20px;
+            background: var(--deep-black);
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+        .gallery-section h2 { font-size: 32px; font-weight: 900; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 2px; color: #fff; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; max-width: 1400px; margin: 0 auto; }
+        
+        .product-card {
+            border-radius: 4px; /* 锐利的圆角 */
+            overflow: hidden;
+            background: #000;
+            border: 1px solid var(--border);
+            transition: 0.3s;
+        }
+        .product-card:hover { border-color: rgba(255,255,255,0.2); transform: translateY(-3px); }
+        
+        .product-card img { width: 100%; height: 350px; object-fit: cover; display: block; filter: grayscale(50%); transition: 0.5s; } /* 默认带一点灰度，更有质感 */
+        .product-card:hover img { filter: grayscale(0%); }
+        
+        .product-card p { padding: 20px; font-weight: 700; font-size: 16px; color: #fff; text-align: left; }
+
+        /* --- 底部转换栏：硬朗的“控制中心” --- */
+        .dock-bar {
+            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+            width: 95%; max-width: 500px; height: 70px;
+            background: rgba(20, 20, 20, 0.95);
+            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            border-radius: 4px; /* 硬朗直角 */
+            display: flex; justify-content: space-around; align-items: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            z-index: 1000;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .dock-item { text-decoration: none; color: var(--text-gray); display: flex; flex-direction: column; align-items: center; flex: 1; transition: 0.2s; }
+        .dock-item:active { background: rgba(255,255,255,0.05); }
+        .dock-item .icon { font-size: 20px; margin-bottom: 3px; color: #fff; }
+        .dock-item span { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .dy-btn { color: var(--dy-red) !important; border-left: 1px solid var(--border); border-right: 1px solid var(--border); height: 100%; justify-content: center; }
+        .dy-btn .icon { color: var(--dy-red) !important; }
+
+        /* --- 弹窗提示 --- */
+        .toast {
+            position: fixed; top: 40px; left: 50%; transform: translateX(-50%);
+            background: rgba(255,255,255,0.9); color: #000;
+            padding: 12px 25px; border-radius: 4px; font-weight: 700;
+            font-size: 14px; display: none; z-index: 2000;
+        }
     </style>
 </head>
 <body>
 
+    <div class="industrial-bg"></div>
+
     <header><div class="logo">ALU-PRO</div></header>
 
     <section class="hero">
-        <p style="color:var(--apple-blue); font-weight:600;">航空级铝合金材质</p >
-        <h1>纤细，却强韧。</h1>
-        <p style="color:#86868b; font-size:18px;">极简线条，勾勒空间秩序。</p >
+        <p>Aviation Grade Aluminum</p >
+        <h1>重塑空间线条。</h1>
+        <p class="sub">专注工业级踢脚线系统研发，为硬朗设计而生。</p >
+    </section>
+
+    <section class="tech-section">
+        <div class="tech-item">
+            <div class="tech-value">0.8<span style="font-size:24px;">mm</span></div>
+            <div class="tech-title">极窄视觉</div>
+            <div class="tech-desc">挑战工艺极限，实现近乎无痕的平面对齐。</div>
+        </div>
+        <div class="tech-item">
+            <div class="tech-value">6063<span style="font-size:24px;">#</span></div>
+            <div class="tech-title">航空级铝材</div>
+            <div class="tech-desc">更硬、更轻、更耐腐蚀。历经陽極氧化处理。</div>
+        </div>
+        <div class="tech-item">
+            <div class="tech-value">9<span style="font-size:24px;">mm</span></div>
+            <div class="tech-title">嵌入式结构</div>
+            <div class="tech-desc">完美的墙面、地面衔接解决方案。</div>
+        </div>
     </section>
 
     <section class="gallery-section">
-        <h2 style="letter-spacing: 2px;">精选系列 / GALLERY</h2>
+        <h2>精选系列 / GALLERY</h2>
         <div class="grid">
             <div class="product-card">
                 < img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800">
-                <p>极简哑光黑 - 01</p >
+                <p>Industrial Black / 工业哑光黑</p >
             </div>
             <div class="product-card">
                 < img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=800">
-                <p>高端拉丝银 - 02</p >
+                <p>Brushed Silver / 高端拉丝银</p >
             </div>
             <div class="product-card">
                 < img src="https://images.unsplash.com/photo-1617806118233-18e1674745be?auto=format&fit=crop&q=80&w=800">
-                <p>香槟金工程 - 03</p >
+                <p>工程项目定制 / Special Editon</p >
             </div>
-        </div>
-        
-        <div style="margin-top: 40px; color: #86868b; font-size: 14px;">
-            <p>商务咨询</p >
-            <p style="color:#1d1d1f; font-weight:600; font-size:18px;">18919521681</p >
         </div>
     </section>
 
     <div class="dock-bar">
-        <a href=" " class="dock-item" style="color:var(--dy-red);">
+        <a href=" " class="dock-item dy-btn">
             <span class="icon">🎵</span><span>去抖音</span>
         </a >
         <a href="javascript:void(0);" onclick="copyWX()" class="dock-item">
             <span class="icon">💬</span><span>加微信</span>
         </a >
         <a href="tel:18919521681" class="dock-item">
-            <span class="icon">📞</span><span>联系经理</span>
+            <span class="icon">📞</span><span>咨询经理</span>
         </a >
         <a href="tel:19541081358" class="dock-item">
-            <span class="icon">📱</span><span>咨询售后</span>
+            <span class="icon">📱</span><span>售后服务</span>
         </a >
     </div>
 
@@ -84,9 +207,7 @@
             const wxID = 'wxid_wg8u93oruyik22';
             const input = document.createElement('input');
             input.setAttribute('value', wxID);
-            document.body.appendChild(input);
-            input.select();
-            document.execCommand('copy');
+            document.body.appendChild(input); input.select(); document.execCommand('copy');
             document.body.removeChild(input);
             const toast = document.getElementById('toast');
             toast.style.display = 'block';
