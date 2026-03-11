@@ -2,248 +2,221 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>爱家铝业 (AIJIA) | 工业级铝合金踢脚线系统 - 极简美学，硬核工艺</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AIJIA 爱家 | 铝合金系统美学</title>
     <style>
-        /* --- 核心视觉变量 (色板 & 质感) --- */
         :root {
-            --bg-black: #000000;
-            --card-gray: #121212;
-            --text-primary: #ffffff;
-            --text-secondary: #86868b; /* 苹果经典次级灰 */
-            --accent-gold: #d4b483;    /* 更精致的高级金 */
+            --graphite: #1c1c1e;
+            --pure-white: #ffffff;
+            --silver-metal: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             --dy-red: #fe2c55;
-            --border: rgba(255, 255, 255, 0.08);
-            --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1); /* 苹果式平滑动画 */
+            --soft-gold: #e5c9a4;
         }
 
-        /* 2. 基础重置 & 字体设置：确保大气与清晰 */
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
         body {
-            /* 优先使用系统默认的高级简体中文，如萍方、冬青黑 */
-            font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
-            background-color: var(--bg-black);
-            color: var(--text-primary);
+            font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: #000;
+            color: var(--pure-white);
             line-height: 1.6;
-            letter-spacing: 0.03em; /* 稍微增加字间距，更有大气感 */
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased; /* 文字抗锯齿，更精致 */
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* --- 头部导航 (全黑极简) --- */
+        /* --- 导航栏：悬浮感 --- */
         header {
-            position: fixed; top: 0; width: 100%; height: 64px;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px);
-            display: flex; justify-content: center; align-items: center;
-            z-index: 1000;
-            border-bottom: 1px solid var(--border);
+            position: fixed; top: 0; width: 100%; height: 70px;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 5%; z-index: 1000;
+            background: rgba(0,0,0,0.5); backdrop-filter: blur(20px);
         }
-        .logo { font-weight: 700; font-size: 20px; letter-spacing: 0.1em; text-transform: uppercase; }
-        .logo span { color: var(--accent-gold); font-weight: 300; }
+        .logo { font-size: 20px; font-weight: 800; letter-spacing: 4px; color: var(--pure-white); }
+        .logo span { color: var(--soft-gold); font-weight: 300; }
 
-        /* --- 封面 Hero 区域 (全屏大气) --- */
+        /* --- Hero：先锋视觉 & 流光文字 --- */
         .hero {
-            height: 100vh;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; padding: 20px;
-            background: radial-gradient(circle at center, #111 0%, #000 100%);
-        }
-        
-        /* 封面顶部的品牌/年份标签 */
-        .hero-tag {
-            font-size: 14px; font-weight: 600; color: var(--accent-gold);
-            text-transform: uppercase; letter-spacing: 0.3em;
-            margin-bottom: 25px;
-            opacity: 0; animation: fadeInDown 1s var(--ease-in-out) forwards;
+            height: 100vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: flex-start;
+            padding: 0 10%; position: relative; overflow: hidden;
         }
 
-        /* ========================================= */
-        /* [核心：铝合金光面质感字体]                 */
-        /* ========================================= */
+        /* 铝合金质感 + 流光动画 */
         .hero h1 {
-            font-size: clamp(60px, 15vw, 120px); /* 极大的字号，产生震撼感 */
-            font-weight: 900; line-height: 1; margin-bottom: 25px;
-            letter-spacing: -0.05em; /* 稍微紧凑，更有视觉冲击力 */
-            
-            /* --- 魔法部分：CSS 模拟金属光泽 --- */
-            background: linear-gradient(
-                165deg,
-                #fff 20%,         /* 20%：最亮的高光 */
-                #a1a1a6 45%,      /* 45%：铝合金拉丝灰 */
-                #fff 55%,         /* 55%：二次反光 */
-                #fff 70%,         /* 70%：明亮的中段 */
-                #6a6a6e 100%       /* 100%：深色阴影 */
-            );
-            -webkit-background-clip: text; /* 将渐变限制在文字内 */
-            -webkit-text-fill-color: transparent; /* 将文字本身设为透明 */
-            /* ------------------------------- */
-            
-            opacity: 0; animation: fadeInUp 1.2s var(--ease-in-out) forwards 0.2s;
-            filter: drop-shadow(0 4px 10px rgba(255,255,255,0.1)); /* 微弱的文字投影，增加层次 */
+            font-size: clamp(50px, 12vw, 100px);
+            font-weight: 900; line-height: 1.1; margin-bottom: 20px;
+            background: linear-gradient(120deg, #fff 20%, #888 40%, #fff 60%, #888 80%, #fff 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: shine 5s linear infinite;
         }
 
-        .hero-sub {
-            font-size: clamp(22px, 4vw, 32px); font-weight: 300; color: #fff;
-            max-width: 480px; margin-bottom: 40px;
-            opacity: 0; animation: fadeInUp 1s var(--ease-in-out) forwards 0.5s;
+        @keyframes shine {
+            to { background-position: 200% center; }
         }
 
-        /* --- 排版丰富的技术参数区 (格子布局) --- */
-        .specs-section {
-            border-top: 1px solid var(--border);
-            display: grid; grid-template-columns: 1fr;
+        .hero p {
+            font-size: 18px; color: #888; letter-spacing: 5px;
+            text-transform: uppercase; margin-bottom: 10px;
         }
-        @media (min-width: 768px) { .specs-section { grid-template-columns: repeat(2, 1fr); } }
 
-        .spec-item {
-            padding: 60px 30px; border-bottom: 1px solid var(--border);
-            background-color: var(--card-gray); transition: background 0.3s;
+        /* --- 核心理念块：非对称排版 --- */
+        .philosophy {
+            padding: 100px 10%; display: grid;
+            grid-template-columns: 1fr; gap: 60px;
+            background: var(--graphite);
         }
-        .spec-item:nth-child(even) { background-color: var(--bg-black); }
-        .spec-item:hover { background-color: rgba(212, 180, 131, 0.03); } /* 鼠标悬停微弱金色氛围 */
+        @media (min-width: 768px) {
+            .philosophy { grid-template-columns: 1fr 1fr; align-items: center; }
+        }
 
-        .spec-label { font-size: 12px; font-weight: 600; color: var(--accent-gold); text-transform: uppercase; letter-spacing: 0.3em; margin-bottom: 15px; }
+        .ph-content h2 { font-size: 32px; margin-bottom: 30px; border-left: 4px solid var(--soft-gold); padding-left: 20px; }
+        .ph-content p { color: #a1a1a6; font-size: 16px; margin-bottom: 20px; text-align: justify; }
+
+        /* --- 技术参数：精密的线条感 --- */
+        .specs-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            background: #000;
+        }
+        .spec-box {
+            padding: 60px 40px; border: 0.5px solid rgba(255,255,255,0.05);
+            transition: 0.4s;
+        }
+        .spec-box:hover { background: #111; }
+        .spec-num { font-size: 40px; font-weight: 200; color: var(--soft-gold); margin-bottom: 10px; font-family: 'Times New Roman', serif; }
+        .spec-label { font-size: 14px; color: #fff; font-weight: 700; margin-bottom: 5px; }
+        .spec-info { font-size: 12px; color: #666; }
+
+        /* --- 产品展示：大画幅 --- */
+        .gallery { padding: 100px 5%; }
+        .gallery-title { font-size: 14px; letter-spacing: 8px; text-align: center; color: #444; margin-bottom: 50px; text-transform: uppercase; }
         
-        /* 大字号工业噴碼感数字 */
-        .spec-value { font-size: clamp(48px, 10vw, 80px); font-weight: 900; color: #fff; margin-bottom: 8px; font-family: 'Arial Black', sans-serif; letter-spacing: -2px; }
-        .spec-value span { font-size: 24px; font-weight: 300; color: var(--text-secondary); margin-left: 5px; }
-
-        .spec-title { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 10px; }
-        .spec-desc { font-size: 15px; color: var(--text-secondary); max-width: 320px; line-height: 1.6; }
-
-        /* --- 案例画廊 (大气、留白) --- */
-        .gallery-section { padding: 100px 20px; background-color: var(--bg-black); text-align: center; }
-        .gallery-section h2 { font-size: 36px; font-weight: 900; color: #fff; margin-bottom: 70px; letter-spacing: 0.1em; }
-
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 15px; max-width: 1600px; margin: 0 auto; }
+        .product-item {
+            position: relative; margin-bottom: 80px; overflow: hidden;
+            border-radius: 2px;
+        }
+        .product-item img { width: 100%; height: 60vh; object-fit: cover; filter: brightness(0.7); transition: 1s; }
+        .product-item:hover img { filter: brightness(1); transform: scale(1.03); }
         
-        .product-card {
-            border-radius: 4px; overflow: hidden; background: #000;
-            border: 1px solid var(--border); transition: 0.5s var(--ease-in-out);
+        .product-desc {
+            position: absolute; bottom: 40px; left: 40px;
+            background: rgba(255,255,255,0.95); color: #000;
+            padding: 20px 40px; border-radius: 0 20px 0 20px;
         }
-        .product-card:hover { transform: scale(1.02); border-color: rgba(212, 180, 131, 0.3); }
+        .product-desc h4 { font-size: 20px; font-weight: 800; }
 
-        .product-card img { width: 100%; height: 450px; object-fit: cover; display: block; filter: grayscale(80%); transition: 0.7s; }
-        .product-card:hover img { filter: grayscale(0%); }
-
-        .card-info { padding: 30px; text-align: left; }
-        .card-info h4 { font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 8px; }
-        .card-info p { font-size: 14px; color: var(--text-secondary); }
-
-        /* --- 底部控制台 (硬朗、直角) --- */
-        .dock-bar {
-            position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%);
-            width: 95%; max-width: 500px; height: 76px;
-            background: rgba(10, 10, 10, 0.98);
-            border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 2px;
-            display: flex; align-items: center; z-index: 2000;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        /* --- 转化 Dock：极简悬浮 --- */
+        .action-dock {
+            position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+            width: 90%; max-width: 480px; height: 70px;
+            background: rgba(255,255,255,0.95); border-radius: 40px;
+            display: flex; padding: 5px; z-index: 2000; box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
-        .dock-item { text-decoration: none; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; height: 100%; transition: 0.2s; }
-        .dock-item:active { background: rgba(255, 255, 255, 0.05); }
-        .dock-item .icon { font-size: 20px; margin-bottom: 4px; }
-        .dock-item span { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); }
+        .dock-btn {
+            flex: 1; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-decoration: none; color: #000; font-size: 10px;
+            font-weight: 800; transition: 0.3s;
+        }
+        .dock-btn .icon { font-size: 18px; margin-bottom: 2px; }
+        .main-btn { background: #000; color: #fff; border-radius: 35px; }
+        .dy-btn { color: var(--dy-red); }
 
-        .dy-accent { background-color: var(--dy-red); color: #fff; border-right: 1px solid rgba(255, 255, 255, 0.1); }
-        .dy-accent span { color: #fff; }
-
-        .toast { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--accent-gold); color: #000; padding: 18px 36px; font-weight: 900; font-size: 15px; display: none; z-index: 3000; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-
-        /* --- 动画设置 --- */
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        .toast {
+            position: fixed; top: 40px; left: 50%; transform: translateX(-50%);
+            background: #fff; color: #000; padding: 10px 30px; border-radius: 20px;
+            font-size: 14px; font-weight: 800; display: none; z-index: 3000;
+        }
     </style>
 </head>
 <body>
 
-    <header><div class="logo">AIJIA | <span>爱家铝业</span></div></header>
+    <header>
+        <div class="logo">AIJIA <span>爱家铝业</span></div>
+        <div style="font-size: 10px; color: #666; letter-spacing: 2px;">PREMIUM SYSTEM</div>
+    </header>
 
     <section class="hero">
-        <div class="hero-tag">EST. 2026 / 工业级系统</div>
-        <h1>硬核，爱筑家。</h1>
-        <p class="hero-sub">专注铝合金踢脚线研发。为极简工业风与现代家居而生。</p >
+        <p>Aijia Aluminum System</p >
+        <h1>进化，<br>不止于型。</h1>
+        <div style="width: 60px; height: 2px; background: var(--soft-gold); margin-top: 20px;"></div>
     </section>
 
-    <section class="specs-section">
-        <div class="spec-item">
-            <div class="spec-label">Thickness / 厚度标准</div>
-            <div class="spec-value">0.8<span>MM</span></div>
-            <div class="spec-title">航空级型材</div>
-            <div class="spec-desc">挑战行业极限厚度，实现近乎无痕的极窄视觉对齐。</div>
+    <section class="philosophy">
+        <div class="ph-content">
+            <h2>设计哲学</h2>
+            <p>我们相信，最好的踢脚线应该在视觉中“消失”。通过航空级 6063-T5 铝材的精密加工，爱家实现了 0.8mm 的极致窄边。</p >
+            <p>这不仅仅是建材，更是空间秩序的重新定义。让每一道线条，都成为家居艺术的一部分。</p >
         </div>
-        <div class="spec-item">
-            <div class="spec-label">Crafts / 工艺表面</div>
-            <div class="spec-value">陽極</div>
-            <div class="spec-title">拉丝喷砂</div>
-            <div class="spec-desc">历经多道工序，不惧潮湿氧化，历久弥新。</div>
+        <div style="height: 300px; background: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800') center; background-size: cover;"></div>
+    </section>
+
+    <section class="specs-grid">
+        <div class="spec-box">
+            <div class="spec-num">0.8</div>
+            <div class="spec-label">极致厚度</div>
+            <div class="spec-info">挑战行业极限，平面对齐。</div>
         </div>
-        <div class="spec-item">
-            <div class="spec-label">Alloy / 编号/标准</div>
-            <div class="spec-value">6063</div>
-            <div class="spec-title">工业建筑级</div>
-            <div class="spec-desc">采用 6063-T5 原材料，硬度更高、韧性更好。</div>
+        <div class="spec-box">
+            <div class="spec-num">6063</div>
+            <div class="spec-label">航空铝材</div>
+            <div class="spec-info">高韧性，抗形变，防潮腐。</div>
         </div>
-        <div class="spec-item">
-            <div class="spec-label">Design / 结构系统</div>
-            <div class="spec-value">嵌入</div>
-            <div class="spec-title">墙平对齐</div>
-            <div class="spec-desc">完美的嵌入式无影设计，勾勒空间秩序与极简美学。</div>
+        <div class="spec-box">
+            <div class="spec-num">#02</div>
+            <div class="spec-label">阳极氧化</div>
+            <div class="spec-info">细腻喷砂工艺，不沾指纹。</div>
+        </div>
+        <div class="spec-box">
+            <div class="spec-num">95%</div>
+            <div class="spec-label">交付满意度</div>
+            <div class="spec-info">全国百城高端工地选用。</div>
         </div>
     </section>
 
-    <section class="gallery-section">
-        <h2>PROJECTS / 工程案例</h2>
-        <div class="grid">
-            <div class="product-card">
-                < img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800">
-                <div class="card-info">
-                    <h4>深邃雅黑系列</h4>
-                    <p>为现代极简风格、重工业风装修而生。</p >
-                </div>
+    <section class="gallery">
+        <div class="gallery-title">Collection / 系列</div>
+        
+        <div class="product-item">
+            < img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=1200">
+            <div class="product-desc">
+                <p style="font-size: 10px; color: #888;">SERIES 01</p >
+                <h4>石墨雅黑 / Graphite</h4>
             </div>
-            <div class="product-card">
-                < img src="https://images.unsplash.com/photo-1600607687940-477a63d95c53?q=80&w=800">
-                <div class="card-info">
-                    <h4>拉丝纯银系列</h4>
-                    <p>体现铝合金最原始、最强烈的金属光泽感。</p >
-                </div>
-            </div>
-            <div class="product-card">
-                < img src="https://images.unsplash.com/photo-1542291026-7ee2c5d514fd?q=80&w=800">
-                <div class="card-info">
-                    <h4>香槟金工程系列</h4>
-                    <p>爱家经典工程项目定制色，彰显家居品质。</p >
-                </div>
+        </div>
+
+        <div class="product-item">
+            < img src="https://images.unsplash.com/photo-1617806118233-18e1674745be?q=80&w=1200">
+            <div class="product-desc">
+                <p style="font-size: 10px; color: #888;">SERIES 02</p >
+                <h4>极光冷银 / Aurora</h4>
             </div>
         </div>
     </section>
 
-    <div class="dock-bar">
-        <a href=" " class="dock-item dy-accent">
-            <span class="icon">🎵</span><span>抖音主页</span>
+    <div class="action-dock">
+        <a href=" " class="dock-btn dy-btn">
+            <span class="icon">🎵</span><span>抖音号</span>
         </a >
-        <a href="javascript:void(0);" onclick="copyWX()" class="dock-item">
+        <a href="tel:18919521681" class="dock-btn main-btn">
+            <span class="icon">📞</span><span>呼叫经理</span>
+        </a >
+        <a href="javascript:void(0);" onclick="copyWX()" class="dock-btn">
             <span class="icon">💬</span><span>微信咨询</span>
         </a >
-        <a href="tel:18919521681" class="dock-item">
-            <span class="icon">📞</span><span>咨询经理</span>
-        </a >
-        <a href="tel:19541081358" class="dock-item">
-            <span class="icon">📱</span><span>售后服务</span>
+        <a href="tel:19541081358" class="dock-btn">
+            <span class="icon">📱</span><span>售后</span>
         </a >
     </div>
 
-    <div id="toast" class="toast">微信号已复制，正在前往微信...</div>
+    <div id="toast" class="toast">微信号已复制</div>
 
     <script>
         function copyWX() {
             const wxID = 'wxid_wg8u93oruyik22';
             const input = document.createElement('input');
             input.setAttribute('value', wxID);
-            document.body.appendChild(input); input.select(); document.execCommand('copy');
+            document.body.appendChild(input);
+            input.select();
+            document.execCommand('copy');
             document.body.removeChild(input);
             const toast = document.getElementById('toast');
             toast.style.display = 'block';
