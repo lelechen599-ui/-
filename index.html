@@ -6,191 +6,119 @@
     <title>AIJIA 爱家 | 全网销量第一 · 铝合金系统美学</title>
     <style>
         :root {
-            --graphite: #1c1c1e;
-            --pure-white: #ffffff;
-            --dy-red: #fe2c55;
-            --soft-gold: #e5c9a4;
-            --border-white: rgba(255, 255, 255, 0.1);
-            --card-bg: #0d0d0d;
+            --graphite: #1c1c1e; --pure-white: #ffffff; --dy-red: #fe2c55;
+            --soft-gold: #e5c9a4; --border-white: rgba(255, 255, 255, 0.1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body { font-family: "PingFang SC", "Hiragino Sans GB", sans-serif; background-color: #000; color: var(--pure-white); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        body { font-family: "PingFang SC", sans-serif; background-color: #000; color: var(--pure-white); line-height: 1.6; }
 
-        /* --- 头部 --- */
-        header { position: fixed; top: 0; width: 100%; height: 70px; display: flex; justify-content: space-between; align-items: center; padding: 0 5%; z-index: 1000; background: rgba(0,0,0,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-white); }
+        header { position: fixed; top: 0; width: 100%; height: 70px; display: flex; justify-content: space-between; align-items: center; padding: 0 5%; z-index: 1000; background: rgba(0,0,0,0.8); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-white); }
         .logo { font-size: 20px; font-weight: 800; letter-spacing: 4px; }
-        .logo span { color: var(--soft-gold); font-weight: 300; }
+        .logo span { color: var(--soft-gold); }
 
-        /* --- Hero：巨幕 --- */
-        .hero { height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 0 8%; background: radial-gradient(circle at 90% 10%, #252525 0%, #000 100%); }
-        .hero .badge { font-size: 13px; color: #000; background: var(--soft-gold); padding: 5px 15px; margin-bottom: 25px; font-weight: 900; letter-spacing: 3px; }
-        .hero h1 { font-size: clamp(60px, 18vw, 130px); font-weight: 900; line-height: 0.95; margin-bottom: 10px; letter-spacing: -3px; }
+        /* --- Hero --- */
+        .hero { height: 70vh; display: flex; flex-direction: column; justify-content: center; padding: 0 8%; background: radial-gradient(circle at 90% 10%, #252525 0%, #000 100%); }
+        .hero h1 { font-size: clamp(55px, 15vw, 110px); font-weight: 900; line-height: 1; margin-bottom: 10px; }
         .metal-text { background: linear-gradient(165deg, #fff 10%, #999 40%, #fff 50%, #888 70%, #fff 100%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shine 6s linear infinite; }
-        .hero .mission-text { font-size: clamp(30px, 8vw, 56px); font-weight: 300; color: var(--soft-gold); letter-spacing: 8px; margin-top: 10px; }
         @keyframes shine { to { background-position: 200% center; } }
 
-        /* --- 模块通用标题 --- */
-        .sec-header { padding: 100px 8% 40px; text-align: left; }
-        .sec-header h2 { font-size: 32px; font-weight: 800; margin-bottom: 10px; letter-spacing: 2px; }
-        .sec-header p { color: var(--soft-gold); font-size: 14px; letter-spacing: 5px; text-transform: uppercase; }
+        /* --- 1. 全色系展示区 (21色) --- */
+        .section-padding { padding: 80px 8%; }
+        .sec-title { font-size: 12px; color: var(--soft-gold); letter-spacing: 5px; text-transform: uppercase; margin-bottom: 40px; }
+        
+        .color-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        @media (min-width: 768px) { .color-grid { grid-template-columns: repeat(6, 1fr); } }
+        
+        .color-card { text-align: center; }
+        .color-circle { width: 55px; height: 55px; border-radius: 50%; margin: 0 auto 10px; border: 2px solid #222; transition: 0.3s; position: relative; }
+        .color-card p { font-size: 11px; color: #888; }
+        .color-card:hover .color-circle { transform: scale(1.15); border-color: var(--soft-gold); }
 
-        /* --- 1. 全球销量荣誉 --- */
-        .ranking-bar { background: var(--card-bg); display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--border-white); border-bottom: 1px solid var(--border-white); }
-        .rank-item { padding: 40px 20px; text-align: center; border-right: 1px solid var(--border-white); }
-        .rank-item:last-child { border-right: none; }
-        .rank-item h3 { font-size: 32px; color: var(--soft-gold); font-family: 'Arial Black'; }
-        .rank-item p { font-size: 11px; color: #666; margin-top: 5px; }
+        /* --- 2. 安装模式选择 --- */
+        .install-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .install-card { background: #111; padding: 50px 30px; border-radius: 4px; border: 1px solid var(--border-white); text-align: center; transition: 0.4s; }
+        .install-card:hover { border-color: var(--soft-gold); background: #161618; }
+        .btn-action { display: inline-block; margin-top: 25px; padding: 12px 35px; border-radius: 30px; font-weight: 800; font-size: 14px; text-decoration: none; transition: 0.3s; }
+        .btn-white { background: #fff; color: #000; }
+        .btn-gold { background: var(--soft-gold); color: #000; }
 
-        /* --- 2. 跨材质大PK (图文版) --- */
-        .material-pk { padding: 0 8% 80px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .pk-card { background: var(--card-bg); border-radius: 4px; overflow: hidden; border: 1px solid var(--border-white); }
-        .pk-img { height: 200px; background-size: cover; background-position: center; filter: grayscale(1); transition: 0.5s; }
-        .pk-card:hover .pk-img { filter: grayscale(0); }
-        .pk-info { padding: 30px; }
-        .pk-info h4 { font-size: 20px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; }
-        .pk-tag { font-size: 12px; padding: 2px 8px; border: 1px solid #444; border-radius: 20px; color: #888; }
-        .pk-info ul { list-style: none; font-size: 14px; color: #777; }
-        .pk-info li { margin-bottom: 10px; display: flex; align-items: center; }
-        .pk-info li::before { content: '✕'; margin-right: 10px; color: #ff4d4f; font-size: 12px; }
-        .pk-card.aijia-win { border: 1px solid var(--soft-gold); box-shadow: 0 0 30px rgba(229, 201, 164, 0.1); }
-        .pk-card.aijia-win li::before { content: '✓'; color: var(--soft-gold); }
-        .pk-card.aijia-win .pk-tag { background: var(--soft-gold); color: #000; border: none; }
-
-        /* --- 3. 结构解剖 (详细排版) --- */
-        .anatomy { background: #080808; padding: 100px 8%; display: flex; flex-wrap: wrap; align-items: center; gap: 50px; }
-        .anatomy-img { flex: 1; min-width: 300px; position: relative; }
-        .anatomy-img img { width: 100%; border-radius: 4px; border: 1px solid var(--border-white); }
-        .anatomy-info { flex: 1; min-width: 300px; }
-        .anatomy-step { margin-bottom: 40px; position: relative; padding-left: 40px; }
-        .anatomy-step::before { content: ''; position: absolute; left: 0; top: 10px; width: 15px; height: 1px; background: var(--soft-gold); }
-        .anatomy-step h5 { font-size: 18px; margin-bottom: 10px; color: var(--soft-gold); }
-        .anatomy-step p { color: #888; font-size: 14px; text-align: justify; }
-
-        /* --- 4. 同行参数对比表 --- */
-        .compare-table { margin: 0 8% 100px; border: 1px solid var(--border-white); overflow: hidden; }
-        .table-row { display: grid; grid-template-columns: 1fr 1fr 1fr; border-bottom: 1px solid var(--border-white); background: #000; }
-        .table-cell { padding: 25px 15px; font-size: 13px; text-align: center; border-right: 1px solid var(--border-white); display: flex; align-items: center; justify-content: center; }
-        .table-cell:last-child { border-right: none; }
-        .cell-title { background: #111; color: #666; font-weight: 600; }
-        .cell-win { background: rgba(229, 201, 164, 0.05); color: var(--soft-gold); font-weight: 800; }
-        .cell-fail { color: #444; }
-
-        /* --- 底部转换 --- */
-        .action-dock { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); width: 94%; max-width: 500px; height: 76px; background: rgba(255,255,255,0.98); border-radius: 40px; display: flex; padding: 6px; z-index: 2000; box-shadow: 0 25px 50px rgba(0,0,0,0.6); }
+        /* --- 3. 预约表单 (隐藏) --- */
+        .booking-form { display: none; margin-top: 30px; padding: 30px; background: #000; border: 1px dashed var(--soft-gold); text-align: left; }
+        .booking-form input { width: 100%; padding: 12px; margin-bottom: 15px; background: #222; border: none; color: #fff; border-radius: 4px; }
+        
+        /* --- 底部转换栏 --- */
+        .action-dock { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); width: 94%; max-width: 500px; height: 76px; background: rgba(255,255,255,0.98); border-radius: 40px; display: flex; padding: 6px; z-index: 2000; }
         .dock-btn { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-decoration: none; color: #000; font-size: 10px; font-weight: 800; }
         .main-btn { background: #000; color: #fff; border-radius: 35px; }
-        .dy-btn { color: var(--dy-red); }
-        .toast { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #fff; color: #000; padding: 15px 35px; border-radius: 30px; font-size: 15px; font-weight: 900; display: none; z-index: 3000; }
+        .toast { position: fixed; top: 40px; left: 50%; transform: translateX(-50%); background: #fff; color: #000; padding: 10px 30px; border-radius: 20px; font-size: 14px; display: none; z-index: 3000; }
     </style>
 </head>
 <body>
 
     <header>
         <div class="logo">AIJIA <span>爱家铝业</span></div>
-        <div style="font-size: 9px; color: #555; letter-spacing: 2px;">PREMIUM ALUMINUM</div>
+        <div style="font-size: 9px; color: #555; letter-spacing: 2px;">FULL COLLECTION 2026</div>
     </header>
 
     <section class="hero">
-        <div class="badge">抖音销量第一 · 行业标准定义者</div>
         <h1 class="metal-text">硬核工艺</h1>
-        <div class="mission-text">爱筑家园</div>
+        <div style="font-size: clamp(30px, 8vw, 50px); color: var(--soft-gold); letter-spacing: 5px;">爱筑家园</div>
     </section>
 
-    <div class="ranking-bar">
-        <div class="rank-item"><h3>TOP 1</h3><p>全网销量榜首</p ></div>
-        <div class="rank-item"><h3>100W+</h3><p>交付总米数</p ></div>
-        <div class="rank-item"><h3>300+</h3><p>安装覆盖城市</p ></div>
-    </div>
-
-    <div class="sec-header">
-        <p>Material Battle</p >
-        <h2>为什么一定要选铝合金？</h2>
-    </div>
-    <section class="material-pk">
-        <div class="pk-card">
-            <div class="pk-img" style="background-image: url('https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=800');"></div>
-            <div class="pk-info">
-                <h4>传统木质/PVC <span class="pk-tag">淘汰边缘</span></h4>
-                <ul>
-                    <li>受潮极易发霉、鼓包、生虫</li>
-                    <li>含有粘合剂，甲醛释放风险</li>
-                    <li>厚度大(1.5cm)，视觉笨重</li>
-                </ul>
-            </div>
-        </div>
-        <div class="pk-card aijia-win">
-            <div class="pk-img" style="background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800');"></div>
-            <div class="pk-info">
-                <h4>AIJIA 爱家铝合金 <span class="pk-tag">现代首选</span></h4>
-                <ul>
-                    <li>航空级原铝，永久不霉不锈</li>
-                    <li>0 甲醛，安装即刻安全入住</li>
-                    <li>0.8mm 极致薄，墙平对齐美学</li>
-                </ul>
-            </div>
+    <section class="section-padding">
+        <span class="sec-title">Color Collection / 21款极致色彩</span>
+        <div class="color-grid">
+            <div class="color-card"><div class="color-circle" style="background:#FFFFFF;"></div><p>瓷白色</p ></div>
+            <div class="color-card"><div class="color-circle" style="background:#FFFDD0;"></div><p>奶油白</p ></div>
+            <div class="color-card"><div class="color-circle" style="background:#F5F5DC;"></div><p>米白色</p ></div>
+            <div class="color-card"><div class="color-circle" style="background:#E1E1E1; background:linear-gradient(135deg,#fff,#aaa);"></div><p>冰川银</p ></div>
+            <div class="color-card"><div class="color-circle" style="background:#E7D7C1;"></div><p>杏子灰</p ></div>
+            <div class="color-card"><div class="color-circle" style="background:#966F33;"></div><p>原木色</p ></div>
+            <div class="color-card"><div class="color-circle" style="background:#1A1A1A;"></div><p>雅典黑</p ></div>
+            <div class="color-card"><div class="color-circle" style="background:#7D7D7D;"></div><p>高级灰</p ></div>
+            <div class="color-card"><div class="color-circle" style="background:#A3A3A1;"></div><p>莫兰迪灰</p ></div>
+            <div class="color-card"><div class="color-circle" style="background:#555555;"></div><p>太空灰</p ></div>
+            <div class="color-card"><div class="color-circle" style="background:#4B3621;"></div><p>胡桃色</p ></div>
+            <div class="color-card"><div class="color-circle" style="background:#C0C0C0;"></div><p>月光灰</p ></div>
+            <div class="color-card"><div class="color-circle" style="background:repeating-linear-gradient(45deg,#4B3621,#332211 10%);"></div><p>拉丝胡桃</p ></div>
+            <div class="color-card"><div class="color-circle" style="background:#5D3A1A;"></div><p>栗棕色</p ></div>
+            <div class="color-card"><div class="color-circle" style="background:#D3D3D3;"></div><p>浅灰色</p ></div>
+            <div class="color-card"><div class="color-circle" style="background:#B0C4DE;"></div><p>冰青银</p ></div>
+            <div class="color-card"><div class="color-circle" style="background:#FFFFF0;"></div><p>象牙白</p ></div>
+            <div class="color-card"><div class="color-circle" style="background:#D4AF37;"></div><p>香槟金</p ></div>
+            <div class="color-card"><div class="color-circle" style="background:#333333;"></div><p>枪灰色</p ></div>
+            <div class="color-card"><div class="color-circle" style="background:#2F4F4F;"></div><p>深灰色</p ></div>
+            <div class="color-card"><div class="color-circle" style="background:#000000; border:1px solid #333;"></div><p>哑光黑</p ></div>
         </div>
     </section>
 
-    <section class="anatomy">
-        <div class="anatomy-img">
-            < img src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?q=80&w=1200" alt="结构细节">
-            <div style="position: absolute; bottom: 20px; right: 20px; background: var(--soft-gold); color: #000; padding: 10px; font-size: 10px; font-weight: 900;">AIJIA 专利结构</div>
-        </div>
-        <div class="anatomy-info">
-            <div class="sec-header" style="padding: 0 0 30px;">
-                <p>Anatomy of Quality</p >
-                <h2>每一毫米，皆是匠心</h2>
+    <section class="section-padding" style="background:#080808;">
+        <span class="sec-title">Installation / 安装方案</span>
+        <div class="install-options">
+            <div class="install-card">
+                <h3 style="font-size:24px; margin-bottom:15px;">自行安装</h3>
+                <p style="color:#666; font-size:14px;">提供详尽视频教学及文字手册<br>简单工具即可上手</p >
+                <a href=" " class="btn-action btn-white">查看教学视频</a >
             </div>
-            <div class="anatomy-step">
-                <h5>6063-T5 航空级原铝</h5>
-                <p>拒绝回收铝。采用原生铝錠熔铸，确保型材硬度达到 12 韦氏以上，受撞击不弯曲、不形变。</p >
+            <div class="install-card">
+                <h3 style="font-size:24px; margin-bottom:15px;">预约师傅安装</h3>
+                <p style="color:#666; font-size:14px;">全国 300+ 城市金牌工匠上门<br>精准测量，售后无忧</p >
+                <a href="javascript:void(0);" onclick="toggleForm()" class="btn-action btn-gold">立即在线预约</a >
+                
+                <div id="bookingForm" class="booking-form">
+                    <p style="font-size:12px; color:var(--soft-gold); margin-bottom:15px;">填写信息，经理将尽快与您联系</p >
+                    <input type="text" id="custName" placeholder="您的姓名">
+                    <input type="tel" id="custTel" placeholder="联系电话">
+                    <input type="text" id="custCity" placeholder="所在城市">
+                    <button onclick="submitBooking()" style="width:100%; padding:12px; background:var(--soft-gold); border:none; font-weight:800;">提交预约申请</button>
+                </div>
             </div>
-            <div class="anatomy-step">
-                <h5>12μm 阳极氧化层</h5>
-                <p>历经三道碱洗、光亮处理及封闭工序，表面形成致密保护膜，防腐蚀能力超出行业标准 2 倍。</p >
-            </div>
-            <div class="anatomy-step">
-                <h5>隐藏式专利卡扣</h5>
-                <p>无需打钉，不伤墙体。独家设计的抗松脱卡扣系统，保证踢脚线与墙面终身无缝贴合。</p >
-            </div>
-        </div>
-    </section>
-
-    <div class="sec-header">
-        <p>Hardcore Contrast</p >
-        <h2>行业基准对比表</h2>
-    </div>
-    <section class="compare-table">
-        <div class="table-row">
-            <div class="table-cell cell-title">对比项目</div>
-            <div class="table-cell cell-win">AIJIA 爱家铝业</div>
-            <div class="table-cell cell-fail">普通同行/仿冒品</div>
-        </div>
-        <div class="table-row">
-            <div class="table-cell cell-title">铝材厚度</div>
-            <div class="table-cell cell-win">标准 0.8mm-1.2mm</div>
-            <div class="table-cell cell-fail">虚标 0.5mm 软塌</div>
-        </div>
-        <div class="table-row">
-            <div class="table-cell cell-title">表面质感</div>
-            <div class="table-cell cell-win">纳米喷砂/极细拉丝</div>
-            <div class="table-cell cell-fail">颗粒粗糙/漆面易掉</div>
-        </div>
-        <div class="table-row">
-            <div class="table-cell cell-title">安装服务</div>
-            <div class="table-cell cell-win">全国 300+ 城市上门</div>
-            <div class="table-cell cell-fail">仅发货，无售后</div>
-        </div>
-        <div class="table-row">
-            <div class="table-cell cell-title">使用寿命</div>
-            <div class="table-cell cell-win">承诺 50 年不退色</div>
-            <div class="table-cell cell-fail">3-5 年开始氧化</div>
         </div>
     </section>
 
     <div class="action-dock">
-        <a href=" " class="dock-btn dy-btn">
+        <a href="snssdk1128://user/profile/29509811695" class="dock-btn" style="color:var(--dy-red)">
             <span class="icon">🎵</span><span>抖音第一</span>
         </a >
         <a href="tel:18919521681" class="dock-btn main-btn">
@@ -199,14 +127,24 @@
         <a href="javascript:void(0);" onclick="copyWX()" class="dock-btn">
             <span class="icon">💬</span><span>微信咨询</span>
         </a >
-        <a href="tel:19541081358" class="dock-btn" style="flex:0.6; color:#999;">
-            <span class="icon" style="font-size:16px;">📱</span><span>售后</span>
-        </a >
     </div>
 
     <div id="toast" class="toast">微信号已复制</div>
 
     <script>
+        function toggleForm() {
+            const form = document.getElementById('bookingForm');
+            form.style.display = form.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function submitBooking() {
+            const name = document.getElementById('custName').value;
+            const tel = document.getElementById('custTel').value;
+            if(!name || !tel) { alert('请填写完整信息'); return; }
+            alert('预约申请已提交，我们将尽快联系您！');
+            toggleForm();
+        }
+
         function copyWX() {
             const wxID = 'wxid_wg8u93oruyik22';
             const input = document.createElement('input');
