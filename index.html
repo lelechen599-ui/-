@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALU-PRO | 极简铝合金踢脚线系列</title>
+    <style>
+        :root {
+            --apple-blue: #0071e3;
+            --metal-silver: #f5f5f7;
+            --deep-gray: #1d1d1f;
+            --glass-effect: rgba(255, 255, 255, 0.7);
+            --blur-val: blur(25px);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, "SF Pro SC", "Helvetica Neue", Arial, sans-serif;
+            background-color: #000; /* 深色背景更能衬托金属感 */
+            color: #fff;
+            line-height: 1.5;
+        }
+
+        /* --- 头部毛玻璃导航 --- */
+        header {
+            position: fixed;
+            top: 0; width: 100%; height: 52px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            z-index: 100;
+            display: flex; justify-content: center; align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        nav a { color: #f5f5f7; text-decoration: none; font-size: 12px; margin: 0 20px; opacity: 0.8; transition: 0.3s; }
+        nav a:hover { opacity: 1; }
+
+        /* --- Hero 视频/图片区域 --- */
+        .hero {
+            height: 100vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            background: linear-gradient(to bottom, #111, #333); /* 模拟金属拉丝质感背景 */
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 8vw, 80px);
+            font-weight: 600;
+            letter-spacing: -2px;
+            margin-bottom: 10px;
+            background: linear-gradient(180deg, #fff 0%, #a1a1a6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p { font-size: 24px; color: #a1a1a6; margin-bottom: 30px; }
+
+        /* --- 产品展示区（毛玻璃卡片） --- */
+        .specs-section {
+            padding: 100px 20px;
+            background: #fff;
+            color: var(--deep-gray);
+            display: flex; flex-direction: column; align-items: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .glass-card {
+            background: rgba(245, 245, 247, 0.6);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 24px;
+            padding: 40px;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover { transform: scale(1.02); }
+
+        .card-tag { color: var(--apple-blue); font-weight: 600; font-size: 14px; margin-bottom: 10px; display: block; }
+        .card-title { font-size: 28px; font-weight: 600; margin-bottom: 15px; }
+
+        /* --- 动画进场 --- */
+        .fade-in { animation: fadeIn 1.5s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#">型号</a>
+            <a href="#">材质工艺</a>
+            <a href="#">安装指南</a>
+            <a href="#" style="background: var(--apple-blue); padding: 4px 12px; border-radius: 20px;">立即咨询</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="fade-in">
+            <p>航空级铝材</p>
+            <h1>纤细，却强韧。</h1>
+            <p>0.8mm 极窄边框，重塑墙角美学。</p>
+        </div>
+    </section>
+
+    <section class="specs-section">
+        <div class="grid">
+            <div class="glass-card">
+                <span class="card-tag">工艺</span>
+                <h3 class="card-title">阳极氧化处理</h3>
+                <p>不惧潮湿，历久弥新。每一寸金属表面都经过精细喷砂，手感温润如玉。</p>
+            </div>
+            <div class="glass-card">
+                <span class="card-tag">设计</span>
+                <h3 class="card-title">嵌入式无影</h3>
+                <p>完美的墙平对齐设计，让空间视觉无限延伸，彻底消除积灰烦恼。</p>
+            </div>
+            <div class="glass-card">
+                <span class="card-tag">安装</span>
+                <h3 class="card-title">卡扣式结构</h3>
+                <p>像磁吸一样简单。无需复杂工具，一人即可完成全屋安装。</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
