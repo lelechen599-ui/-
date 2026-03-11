@@ -16,62 +16,59 @@
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body { font-family: "PingFang SC", "Hiragino Sans GB", sans-serif; background-color: #000; color: var(--pure-white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-        /* --- 导航 --- */
-        header { position: fixed; top: 0; width: 100%; height: 70px; display: flex; justify-content: space-between; align-items: center; padding: 0 5%; z-index: 1000; background: rgba(0,0,0,0.5); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-white); }
+        header { position: fixed; top: 0; width: 100%; height: 70px; display: flex; justify-content: space-between; align-items: center; padding: 0 5%; z-index: 1000; background: rgba(0,0,0,0.8); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-white); }
         .logo { font-size: 20px; font-weight: 800; letter-spacing: 4px; }
         .logo span { color: var(--soft-gold); font-weight: 300; }
 
-        /* --- Hero：硬核工艺，爱筑家园 --- */
-        .hero { height: 95vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 0 10%; background: radial-gradient(circle at 80% 20%, #222 0%, #000 100%); }
-        .hero .badge { font-size: 12px; color: #000; background: var(--soft-gold); padding: 4px 12px; margin-bottom: 30px; font-weight: 900; letter-spacing: 2px; box-shadow: 0 5px 15px rgba(229, 201, 164, 0.3); }
+        /* --- Hero：巨幕标题 --- */
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 0 8%; background: radial-gradient(circle at 90% 10%, #252525 0%, #000 100%); }
+        .hero .badge { font-size: 13px; color: #000; background: var(--soft-gold); padding: 5px 15px; margin-bottom: 30px; font-weight: 900; letter-spacing: 3px; }
         
-        /* 封面主标语 */
-        .hero h1 { font-size: clamp(45px, 12vw, 95px); font-weight: 900; line-height: 1.1; margin-bottom: 15px; }
-        
-        /* [金属质感文字] */
+        /* 极大化标题 */
+        .hero h1 { font-size: clamp(65px, 18vw, 130px); font-weight: 900; line-height: 0.95; margin-bottom: 20px; letter-spacing: -2px; }
         .metal-text {
-            background: linear-gradient(120deg, #fff 20%, #888 40%, #fff 60%, #888 80%, #fff 100%);
+            background: linear-gradient(165deg, #fff 10%, #999 40%, #fff 50%, #888 70%, #fff 100%);
             background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            animation: shine 5s linear infinite;
+            animation: shine 6s linear infinite;
         }
-        /* [副标语] */
-        .hero .mission-text { font-size: clamp(24px, 6vw, 42px); font-weight: 400; color: var(--soft-gold); letter-spacing: 4px; opacity: 0.9; }
-        
-        .hero p.desc { font-size: 16px; color: #666; margin-top: 30px; font-weight: 300; letter-spacing: 1px; }
-        
+        .hero .mission-text { font-size: clamp(32px, 8vw, 56px); font-weight: 300; color: var(--soft-gold); letter-spacing: 8px; margin-top: 10px; }
         @keyframes shine { to { background-position: 200% center; } }
 
-        /* --- 销量荣誉榜 --- */
-        .ranking-section { padding: 80px 10%; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 30px; text-align: center; border-bottom: 1px solid var(--border-white); background: #050505; }
-        .rank-item h2 { font-size: 42px; font-weight: 900; color: var(--soft-gold); margin-bottom: 5px; font-family: 'Arial Black'; }
-        .rank-item p { font-size: 13px; color: #888; font-weight: 600; letter-spacing: 1px; }
+        /* --- 销量背书 --- */
+        .ranking-section { padding: 60px 8%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: center; border-bottom: 1px solid var(--border-white); background: #080808; }
+        .rank-item h2 { font-size: clamp(28px, 6vw, 48px); font-weight: 900; color: var(--soft-gold); margin-bottom: 5px; }
+        .rank-item p { font-size: 11px; color: #888; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
 
-        /* --- 师傅上门安装 --- */
-        .sec-title { font-size: 12px; letter-spacing: 5px; color: var(--soft-gold); margin-bottom: 50px; text-transform: uppercase; text-align: center; }
-        .service-section { padding: 100px 10%; background: #000; }
-        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .service-card { background: #111; padding: 45px 35px; border-radius: 2px; border: 1px solid var(--border-white); transition: 0.4s; }
-        .service-card:hover { border-color: var(--soft-gold); transform: translateY(-5px); }
+        /* --- 同行对比：专业表格布局 --- */
+        .compare-section { padding: 100px 5%; background: #000; }
+        .sec-title { font-size: 14px; letter-spacing: 6px; color: var(--soft-gold); margin-bottom: 60px; text-transform: uppercase; text-align: center; }
+        
+        .compare-container { width: 100%; max-width: 900px; margin: 0 auto; overflow: hidden; border: 1px solid var(--border-white); }
+        .compare-row { display: grid; grid-template-columns: 1.2fr 1fr 1fr; border-bottom: 1px solid var(--border-white); }
+        .compare-row:last-child { border-bottom: none; }
+        .compare-cell { padding: 25px 15px; font-size: 14px; display: flex; align-items: center; justify-content: center; text-align: center; }
+        
+        /* 表头样式 */
+        .cell-head { background: #111; color: #888; font-weight: 600; justify-content: flex-start; padding-left: 20px; }
+        .cell-aijia { background: rgba(229, 201, 164, 0.05); color: var(--soft-gold); font-weight: 800; border-left: 1px solid var(--border-white); border-right: 1px solid var(--border-white); }
+        .cell-other { color: #555; }
+        .check-icon { color: var(--soft-gold); font-size: 18px; margin-right: 5px; }
+
+        /* --- 师傅服务 --- */
+        .service-section { padding: 100px 8%; background: #0a0a0a; }
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .service-card { background: #000; padding: 50px 35px; border-radius: 4px; border: 1px solid var(--border-white); transition: 0.4s; }
+        .service-card:hover { border-color: var(--soft-gold); }
         .service-icon { font-size: 32px; margin-bottom: 25px; display: block; }
-        .service-card h3 { font-size: 22px; margin-bottom: 15px; letter-spacing: 1px; }
+        .service-card h3 { font-size: 20px; margin-bottom: 15px; letter-spacing: 1px; }
         .service-card p { color: #666; font-size: 14px; line-height: 1.8; }
 
-        /* --- 对比 --- */
-        .vs-section { padding: 100px 10%; background: #050505; }
-        .vs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border-white); border: 1px solid var(--border-white); }
-        .vs-item { background: #000; padding: 50px 30px; }
-        .vs-item h4 { margin-bottom: 25px; font-size: 18px; letter-spacing: 2px; }
-        .vs-item.better { background: #0d0d0d; color: var(--soft-gold); }
-        .vs-list { list-style: none; font-size: 14px; line-height: 2.8; color: #555; }
-        .vs-item.better .vs-list { color: #ccc; }
-
         /* --- 底部转换栏 --- */
-        .action-dock { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 500px; height: 76px; background: rgba(255,255,255,0.98); border-radius: 40px; display: flex; padding: 6px; z-index: 2000; box-shadow: 0 25px 50px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.2); }
+        .action-dock { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); width: 94%; max-width: 500px; height: 76px; background: rgba(255,255,255,0.98); border-radius: 40px; display: flex; padding: 6px; z-index: 2000; box-shadow: 0 25px 50px rgba(0,0,0,0.6); }
         .dock-btn { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-decoration: none; color: #000; font-size: 10px; font-weight: 800; }
-        .main-btn { background: #000; color: #fff; border-radius: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .main-btn { background: #000; color: #fff; border-radius: 35px; }
         .dy-btn { color: var(--dy-red); }
-        
-        .toast { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #fff; color: #000; padding: 15px 35px; border-radius: 30px; font-size: 15px; font-weight: 900; display: none; z-index: 3000; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+        .toast { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #fff; color: #000; padding: 15px 35px; border-radius: 30px; font-size: 15px; font-weight: 900; display: none; z-index: 3000; }
     </style>
 </head>
 <body>
@@ -82,68 +79,74 @@
     </header>
 
     <section class="hero">
-        <div class="badge">抖音 / 全网销量第一</div>
+        <div class="badge">抖音/全网销量第一</div>
         <h1 class="metal-text">硬核工艺</h1>
         <div class="mission-text">爱筑家园</div>
-        <p class="desc">AIJIA | 爱家铝合金踢脚线系统，定义现代家居美学新高度。</p >
     </section>
 
     <section class="ranking-section">
         <div class="rank-item">
             <h2>TOP 1</h2>
-            <p>抖音类目销量榜首</p >
+            <p>抖音销量榜首</p >
         </div>
         <div class="rank-item">
             <h2>100W+</h2>
-            <p>全网累计交付米数</p >
+            <p>交付总米数</p >
         </div>
         <div class="rank-item">
             <h2>300+</h2>
-            <p>全国师傅上门城市</p >
+            <p>服务城市</p >
+        </div>
+    </section>
+
+    <section class="compare-section">
+        <div class="sec-title">Comparison / 拒绝廉价平替</div>
+        <div class="compare-container">
+            <div class="compare-row" style="background: #111;">
+                <div class="compare-cell cell-head">对比维度</div>
+                <div class="compare-cell cell-aijia">AIJIA 爱家</div>
+                <div class="compare-cell cell-other">普通品牌</div>
+            </div>
+            <div class="compare-row">
+                <div class="compare-cell cell-head">原材料</div>
+                <div class="compare-cell cell-aijia">航空级 6063 原铝</div>
+                <div class="compare-cell cell-other">劣质回收铝</div>
+            </div>
+            <div class="compare-row">
+                <div class="compare-cell cell-head">表面工艺</div>
+                <div class="compare-cell cell-aijia">三道阳极氧化</div>
+                <div class="compare-cell cell-other">普通喷漆/贴纸</div>
+            </div>
+            <div class="compare-row">
+                <div class="compare-cell cell-head">核心视觉</div>
+                <div class="compare-cell cell-aijia">0.8mm 极窄隐形</div>
+                <div class="compare-cell cell-other">1.5cm 笨重呆板</div>
+            </div>
+            <div class="compare-row">
+                <div class="compare-cell cell-head">上门服务</div>
+                <div class="compare-cell cell-aijia"><span class="check-icon">✓</span>全国专业测量安装</div>
+                <div class="compare-cell cell-other">仅发货/无安装</div>
+            </div>
+            <div class="compare-row">
+                <div class="compare-cell cell-head">市场地位</div>
+                <div class="compare-cell cell-aijia">全网销量第一</div>
+                <div class="compare-cell cell-other">低端仿冒多</div>
+            </div>
         </div>
     </section>
 
     <section class="service-section">
-        <div class="sec-title">Service / 匠心安装</div>
+        <div class="sec-title">Premium / 匠心安装</div>
         <div class="service-grid">
             <div class="service-card">
                 <span class="service-icon">📏</span>
-                <h3>专业上门测量</h3>
-                <p>安装前专业师傅携带样板，核对墙面水平度，提供最优避雷与美学收口方案。</p >
+                <h3>全国免费测量</h3>
+                <p>专业师傅携带样板，核对墙面水平度，提供最优避雷与美学收口方案。</p >
             </div>
             <div class="service-card">
                 <span class="service-icon">🛠️</span>
-                <h3>全国联保安装</h3>
-                <p>覆盖全国主流城市，金牌工匠熟练掌握极窄踢脚线安装工艺，严丝合缝。</p >
-            </div>
-            <div class="service-card">
-                <span class="service-icon">🛡️</span>
-                <h3>交付验收标准</h3>
-                <p>现场清理、平整度验收。我们承诺不满意免费重装，让爱筑家，真正无忧。</p >
-            </div>
-        </div>
-    </section>
-
-    <section class="vs-section">
-        <div class="sec-title">Why Aijia / 为什么选爱家</div>
-        <div class="vs-grid">
-            <div class="vs-item">
-                <h4>传统踢脚线</h4>
-                <ul class="vs-list">
-                    <li>✕ 易受潮发霉生虫</li>
-                    <li>✕ 厚重笨拙，占用空间</li>
-                    <li>✕ 环保等级存疑</li>
-                    <li>✕ 售后安装无标准</li>
-                </ul>
-            </div>
-            <div class="vs-item better">
-                <h4>AIJIA 爱家铝业</h4>
-                <ul class="vs-list">
-                    <li>✓ 航空铝材，永久防腐</li>
-                    <li>✓ 0.8mm 极窄隐形视觉</li>
-                    <li>✓ 0 甲醛，安全入住</li>
-                    <li>✓ 销量第一，专业师傅安装</li>
-                </ul>
+                <h3>大师级施工</h3>
+                <p>金牌工匠熟练掌握极窄踢脚线安装工艺，确保转角、接口严丝合缝。</p >
             </div>
         </div>
     </section>
